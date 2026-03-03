@@ -3,6 +3,12 @@ export default defineOAuthGoogleEventHandler({
     await setUserSession(event, {
       user: { name: user.name, email: user.email, picture: user.picture },
     })
+    trackEvent(event, user.email ?? null, {
+      type: 'login',
+      provider: 'google',
+      name: user.name,
+      email: user.email,
+    })
     return sendRedirect(event, '/')
   },
   async onError(event, error) {

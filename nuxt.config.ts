@@ -10,5 +10,11 @@ export default defineNuxtConfig({
     experimental: {
       sqliteConnector: 'native'
     }
-  }
+  },
+  runtimeConfig: {
+    supabase: {
+      url: '',
+      serviceRoleKey: '',
+    },
+  },
 })
