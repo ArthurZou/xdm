@@ -17,3 +17,128 @@
     transition: background-color 0.2s ease, color 0.2s ease;
   }
 }
+
+/* ===== Prose / Markdown 排版样式 ===== */
+@layer components {
+  .prose {
+    @apply text-slate-800 dark:text-slate-200 leading-7;
+    max-width: 72ch;
+  }
+
+  /* 标题 */
+  .prose h1 {
+    @apply text-3xl font-bold text-slate-900 dark:text-white mt-0 mb-6 leading-tight;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 0.5rem;
+  }
+  .dark .prose h1 {
+    border-bottom-color: #334155;
+  }
+  .prose h2 {
+    @apply text-2xl font-semibold text-slate-900 dark:text-white mt-10 mb-4 leading-snug;
+  }
+  .prose h3 {
+    @apply text-xl font-semibold text-slate-800 dark:text-slate-100 mt-8 mb-3;
+  }
+  .prose h4 {
+    @apply text-lg font-medium text-slate-800 dark:text-slate-100 mt-6 mb-2;
+  }
+
+  /* 段落 */
+  .prose p {
+    @apply my-4 text-slate-700 dark:text-slate-300;
+  }
+
+  /* 链接 */
+  .prose a {
+    @apply text-blue-600 dark:text-blue-400 font-medium underline underline-offset-2 decoration-blue-300 dark:decoration-blue-600;
+    transition: color 0.15s ease;
+  }
+  .prose a:hover {
+    @apply text-blue-800 dark:text-blue-200 decoration-blue-500;
+  }
+
+  /* 无序列表 */
+  .prose ul {
+    @apply my-4 pl-6 space-y-2;
+    list-style-type: disc;
+  }
+  .prose ul li {
+    @apply text-slate-700 dark:text-slate-300;
+  }
+  .prose ul li::marker {
+    color: #3b82f6;
+  }
+
+  /* 有序列表 */
+  .prose ol {
+    @apply my-4 pl-6 space-y-2;
+    list-style-type: decimal;
+  }
+  .prose ol li {
+    @apply text-slate-700 dark:text-slate-300;
+  }
+  .prose ol li::marker {
+    @apply text-blue-500 font-semibold;
+  }
+
+  /* 嵌套列表 */
+  .prose li ul,
+  .prose li ol {
+    @apply mt-2 mb-0;
+  }
+
+  /* 行内代码 */
+  .prose code:not(pre code) {
+    @apply bg-slate-100 dark:bg-slate-800 text-blue-700 dark:text-blue-300 px-1.5 py-0.5 rounded text-sm font-mono;
+  }
+
+  /* 代码块 */
+  .prose pre {
+    @apply bg-slate-900 dark:bg-slate-950 text-slate-100 rounded-lg p-4 my-6 overflow-x-auto text-sm leading-relaxed;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  }
+  .prose pre code {
+    @apply bg-transparent p-0 text-inherit font-mono;
+  }
+
+  /* 引用块 */
+  .prose blockquote {
+    @apply border-l-4 border-blue-500 pl-4 my-6 italic text-slate-600 dark:text-slate-400 bg-blue-50 dark:bg-slate-800/50 py-3 pr-4 rounded-r-md;
+  }
+
+  /* 水平线 */
+  .prose hr {
+    @apply my-8 border-slate-200 dark:border-slate-700;
+  }
+
+  /* 加粗 / 斜体 */
+  .prose strong {
+    @apply font-semibold text-slate-900 dark:text-slate-100;
+  }
+  .prose em {
+    @apply italic text-slate-600 dark:text-slate-400;
+  }
+
+  /* 表格 */
+  .prose table {
+    @apply w-full my-6 text-sm border-collapse;
+  }
+  .prose thead {
+    @apply bg-slate-100 dark:bg-slate-800;
+  }
+  .prose th {
+    @apply px-4 py-2 text-left font-semibold text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700;
+  }
+  .prose td {
+    @apply px-4 py-2 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700;
+  }
+  .prose tbody tr:nth-child(even) {
+    @apply bg-slate-50 dark:bg-slate-800/40;
+  }
+
+  /* 图片 */
+  .prose img {
+    @apply rounded-lg my-6 shadow-md max-w-full;
+  }
+}
